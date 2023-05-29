@@ -8,9 +8,9 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 
-@EnableDiscoveryClient
-@EnableEurekaClient
 @SpringBootApplication
+@EnableEurekaClient
+@EnableDiscoveryClient
 public class MscloudgatewayApplication {
 
 	public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class MscloudgatewayApplication {
 	public RouteLocator routes(RouteLocatorBuilder builder) {
 		return builder
 				.routes()
-					.route(r -> r.path("clientes/**").uri("lb://msclientes"))
+					.route(r -> r.path("/clientes/**").uri("lb://msclientes"))
 				.build();
 	}
 }
